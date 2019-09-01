@@ -112,9 +112,43 @@ Netwerk veranderingen:
 Analyse:
 - Trainingsdata overfit redelijk snel naar 70% na tien epochs waar test acc 33% is.  
 
-## Run 2:  
+## Run 2: 0.81
 Netwerk veranderingen: 
 - Dropout toegevoegd aan alle layers
 
 Analyse:
 - Blijft overfitten. Dropout is al overal toegevoegd, dus ga eens proberen met 10000 ipv 5000 images. 
+- 10000 images convergeert niet zelfs niet na 50 epochs + duurt te lang. Data augmentation gebruiken, zo blijft rekenkracht/tijd hetzelfde.
+- Hoe meer categorieën er zijn hoe meer trainingsdata nodig, zodanig dat elke combinatie minstens n keer kan voorkomen. 
+
+## Run 3: 0.00
+Netwerk veranderingen: 
+- Data augmentation toegevoegd, dus er wordt nu gewerkt met generators. 
+- rotation_range=30 -> 15 graden rotatie van image
+- width_shift_range=0.1 -> 
+- height_shift_range=0.1,
+- shear_range=0.2
+
+Analyse:
+- Convergeert niet te veel augmentation
+
+## Run 4: 0.87
+Netwerk veranderingen: 
+- Data augmentation toegevoegd, dus er wordt nu gewerkt met generators. 
+- rotation_range=5 -> 5 graden rotatie van image
+
+Analyse:
+- Veel minder overfitting, volgende run ook shear range toevoegen. Is een slecht idee, want vervormt te veel! Graden naar 10 aangepast
+
+## Run 5: 0.81
+Netwerk veranderingen: 
+- rotation_range=10-> 10 graden rotatie van image
+
+Analyse:
+- Veel minder overfitting, volgende run ook shear range toevoegen. Is een slecht idee, want vervormt te veel! Graden naar 10 aangepast
+
+
+
+
+
+
