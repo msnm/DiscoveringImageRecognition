@@ -63,7 +63,7 @@ def train():
 
     # Data generator for image augmentation
     datagen = ImageDataGenerator(
-        rotation_range=10, #15 graden rotatie van image
+        rotation_range=5, #15 graden rotatie van image
     )
     gen_train = datagen.flow(images_train, labels_encoded_train, batch_size=100)
 
@@ -100,7 +100,7 @@ def train():
         gen_train,
         validation_data=(images_test, labels_encoded_test),
         steps_per_epoch=40, #40 * 100 = 4000 == size trainingsdata
-        epochs=80
+        epochs=60
     )
 
     ############### 5. Visualizing and saving the result
